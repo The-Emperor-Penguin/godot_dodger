@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/character_sprite.png" type="Texture" id=2]
+[ext_resource path="res://assets/background.png" type="Texture" id=3]
+[ext_resource path="res://Game.gd" type="Script" id=4]
+[ext_resource path="res://assets/LiberationMono-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Score_Label.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=4]
+size = 71
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16.5, 16.25 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="background" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 530, 212 )
+scale = Vector2( 3.36963, 0.680969 )
+texture = ExtResource( 3 )
+
+[node name="Score_Label" type="Label" parent="."]
+margin_left = 932.0
+margin_top = -1.0
+margin_right = 1021.0
+margin_bottom = 81.0
+size_flags_horizontal = 3
+theme = SubResource( 3 )
+text = "0"
+align = 1
+valign = 1
+uppercase = true
+script = ExtResource( 6 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 515, 560 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Player"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( 0, -0.25 )
+shape = SubResource( 1 )

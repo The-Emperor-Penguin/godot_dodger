@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/LiberationMono-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/background.png" type="Texture" id=2]
+[ext_resource path="res://Play_Button.gd" type="Script" id=3]
+[ext_resource path="res://Game_over_Score_Label.gd" type="Script" id=4]
+[ext_resource path="res://assets/button_background.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=5]
+size = 44
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+extra_spacing_top = 25
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 71
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 2 )
+
+[node name="game_over" type="Node2D"]
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 808, 334 )
+scale = Vector2( 2.20361, 0.451172 )
+texture = ExtResource( 2 )
+
+[node name="play_button" type="Sprite" parent="."]
+position = Vector2( 265, 155 )
+scale = Vector2( 0.595, 0.5 )
+texture = ExtResource( 5 )
+hframes = 2
+
+[node name="Play_Button" type="LinkButton" parent="play_button"]
+anchor_right = 0.824
+margin_left = -131.0
+margin_top = -50.0
+margin_right = -118.2
+margin_bottom = 50.0
+focus_mode = 2
+theme = SubResource( 3 )
+action_mode = 0
+text = "Play Again"
+underline = 2
+script = ExtResource( 3 )
+
+[node name="Game_over_Score_Label" type="Label" parent="."]
+margin_right = 63.0
+margin_bottom = 82.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme = SubResource( 4 )
+text = "0"
+align = 1
+valign = 1
+uppercase = true
+script = ExtResource( 4 )
